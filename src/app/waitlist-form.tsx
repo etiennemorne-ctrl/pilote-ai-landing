@@ -2,13 +2,13 @@
 
 import { useState, useTransition } from "react";
 import { joinWaitlist } from "./actions";
+import { Loader2, CheckCircle2, ArrowRight } from "lucide-react";
 
 export function WaitlistForm() {
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<{
     success: boolean;
     message: string;
-    position?: number;
   } | null>(null);
 
   function handleSubmit(formData: FormData) {
@@ -20,30 +20,32 @@ export function WaitlistForm() {
 
   if (result?.success) {
     return (
-      <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 text-center max-w-lg mx-auto">
-        <div className="text-4xl mb-4">&#10003;</div>
-        <h3 className="text-xl font-bold text-emerald-800 mb-2">
-          {result.message}
+      <div className="bg-white border border-emerald-200 rounded-3xl p-10 text-center max-w-lg mx-auto shadow-lg shadow-emerald-500/5 animate-fade-up">
+        <CheckCircle2 className="w-14 h-14 text-emerald-500 mx-auto mb-5" />
+        <h3 className="text-2xl font-extrabold text-emerald-800 mb-3">
+          Bienvenue parmi les pilotes\u00a0!
         </h3>
-        {result.position && (
-          <p className="text-emerald-600">
-            Vous etes en position <strong>#{result.position}</strong> sur la
-            liste d&apos;attente.
-          </p>
-        )}
-        <p className="text-emerald-600 mt-2 text-sm">
-          On vous contacte dans les prochains jours pour un acces prioritaire.
+        <p className="text-emerald-600 leading-relaxed">
+          Vous faites partie des premiers inscrits.
+          <br />
+          On vous contacte tr\u00e8s bient\u00f4t pour votre acc\u00e8s prioritaire.
         </p>
+        <div className="mt-6 pt-6 border-t border-emerald-100 text-sm text-emerald-500">
+          Partagez PILOTE\u00a0AI \u00e0 un dirigeant de PME qui en a besoin
+        </div>
       </div>
     );
   }
 
   return (
-    <form action={handleSubmit} className="max-w-lg mx-auto space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+    <form
+      action={handleSubmit}
+      className="max-w-lg mx-auto bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-primary/5 border border-border/60"
+    >
+      <div className="grid grid-cols-2 gap-4 mb-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-muted mb-1">
-            Prenom *
+          <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-1.5">
+            Pr\u00e9nom <span className="text-red-400">*</span>
           </label>
           <input
             type="text"
@@ -51,26 +53,26 @@ export function WaitlistForm() {
             name="name"
             required
             placeholder="Sophie"
-            className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            className="w-full px-4 py-3 rounded-xl border border-border bg-muted-bg/50 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition text-sm"
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-muted mb-1">
+          <label htmlFor="company" className="block text-sm font-semibold text-foreground mb-1.5">
             Entreprise
           </label>
           <input
             type="text"
             id="company"
             name="company"
-            placeholder="Mon Entreprise SAS"
-            className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            placeholder="Mon Entreprise"
+            className="w-full px-4 py-3 rounded-xl border border-border bg-muted-bg/50 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition text-sm"
           />
         </div>
       </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-muted mb-1">
-          Email professionnel *
+      <div className="mb-4">
+        <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-1.5">
+          Email professionnel <span className="text-red-400">*</span>
         </label>
         <input
           type="email"
@@ -78,63 +80,74 @@ export function WaitlistForm() {
           name="email"
           required
           placeholder="sophie@cabinet-conseil.fr"
-          className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+          className="w-full px-4 py-3 rounded-xl border border-border bg-muted-bg/50 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition text-sm"
         />
       </div>
 
-      <div>
-        <label htmlFor="size" className="block text-sm font-medium text-muted mb-1">
-          Taille de votre entreprise
-        </label>
-        <select
-          id="size"
-          name="size"
-          className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
-        >
-          <option value="">Choisir...</option>
-          <option value="1">Independant / 1 personne</option>
-          <option value="2-5">2 a 5 salaries</option>
-          <option value="6-20">6 a 20 salaries</option>
-          <option value="21-50">21 a 50 salaries</option>
-          <option value="50+">Plus de 50 salaries</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="pain" className="block text-sm font-medium text-muted mb-1">
-          Votre plus gros defi au quotidien ?
-        </label>
-        <select
-          id="pain"
-          name="pain"
-          className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
-        >
-          <option value="">Choisir...</option>
-          <option value="admin">Trop d&apos;administratif</option>
-          <option value="tresorerie">Visibilite sur la tresorerie</option>
-          <option value="factures">Factures et relances</option>
-          <option value="contenu">Creer du contenu (LinkedIn, blog)</option>
-          <option value="clients">Support client chronophage</option>
-          <option value="marketing">Trouver de nouveaux clients</option>
-          <option value="recrutement">Recrutement</option>
-          <option value="autre">Autre</option>
-        </select>
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div>
+          <label htmlFor="size" className="block text-sm font-semibold text-foreground mb-1.5">
+            Taille
+          </label>
+          <select
+            id="size"
+            name="size"
+            className="w-full px-4 py-3 rounded-xl border border-border bg-muted-bg/50 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition text-sm text-muted"
+          >
+            <option value="">Choisir...</option>
+            <option value="1">Ind\u00e9pendant</option>
+            <option value="2-5">2 \u00e0 5 salari\u00e9s</option>
+            <option value="6-20">6 \u00e0 20 salari\u00e9s</option>
+            <option value="21-50">21 \u00e0 50 salari\u00e9s</option>
+            <option value="50+">Plus de 50</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="pain" className="block text-sm font-semibold text-foreground mb-1.5">
+            Plus gros d\u00e9fi
+          </label>
+          <select
+            id="pain"
+            name="pain"
+            className="w-full px-4 py-3 rounded-xl border border-border bg-muted-bg/50 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition text-sm text-muted"
+          >
+            <option value="">Choisir...</option>
+            <option value="admin">Trop d&apos;administratif</option>
+            <option value="tresorerie">Visibilit\u00e9 tr\u00e9sorerie</option>
+            <option value="factures">Factures et relances</option>
+            <option value="contenu">Cr\u00e9er du contenu</option>
+            <option value="clients">Support client</option>
+            <option value="marketing">Trouver des clients</option>
+            <option value="recrutement">Recrutement</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
       </div>
 
       {result && !result.success && (
-        <p className="text-red-600 text-sm">{result.message}</p>
+        <p className="text-red-600 text-sm mb-4 font-medium">{result.message}</p>
       )}
 
       <button
         type="submit"
         disabled={isPending}
-        className="w-full py-4 px-6 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition disabled:opacity-50 disabled:cursor-not-allowed text-lg cursor-pointer"
+        className="w-full py-4 px-6 bg-gradient-to-r from-primary to-purple-600 text-white font-bold rounded-xl hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base cursor-pointer hover:-translate-y-0.5 flex items-center justify-center gap-2"
       >
-        {isPending ? "Inscription en cours..." : "Rejoindre la liste d'attente"}
+        {isPending ? (
+          <>
+            <Loader2 className="w-5 h-5 animate-spin" />
+            Inscription en cours...
+          </>
+        ) : (
+          <>
+            Rejoindre la liste d&apos;attente
+            <ArrowRight className="w-5 h-5" />
+          </>
+        )}
       </button>
 
-      <p className="text-center text-sm text-muted">
-        Gratuit. Pas de spam. Acces prioritaire au lancement.
+      <p className="text-center text-xs text-muted mt-4">
+        Gratuit &middot; Pas de spam &middot; Acc\u00e8s prioritaire au lancement
       </p>
     </form>
   );

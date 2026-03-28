@@ -1,367 +1,397 @@
+import {
+  FileText, Bot, PenTool, Search, BarChart3, MessageCircle,
+  Target, Mic, FileCheck, Settings, Briefcase, Check, ArrowRight,
+  Shield, Globe, Cpu, Users, Zap, Clock, ChevronRight,
+} from "lucide-react";
 import { WaitlistForm } from "./waitlist-form";
 
 const SERVICES = [
   {
-    icon: "&#128176;",
+    icon: FileText,
     title: "Facturation intelligente",
-    desc: "Factures conformes 2026, relances auto, rapprochement bancaire IA",
-    tag: "Obligatoire sept 2026",
+    desc: "Factures conformes Factur-X, relances automatiques, rapprochement bancaire par IA. Pr\u00eat pour septembre 2026.",
+    tag: "Obligatoire sept. 2026",
+    tagColor: "bg-red-50 text-red-700",
   },
   {
-    icon: "&#129302;",
+    icon: Bot,
     title: "Assistant virtuel",
-    desc: "Tri emails, agenda, courriers, suivi administratif",
+    desc: "Tri de vos emails par priorit\u00e9, gestion d\u2019agenda, g\u00e9n\u00e9ration de courriers et suivi administratif.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#9997;",
-    title: "Creation de contenu",
-    desc: "Posts LinkedIn, articles SEO, newsletters en 1 clic",
-    tag: "Le plus demande",
+    icon: PenTool,
+    title: "Cr\u00e9ation de contenu",
+    desc: "Posts LinkedIn dans votre ton, articles SEO optimis\u00e9s, newsletters \u2014 g\u00e9n\u00e9r\u00e9s en un clic.",
+    tag: "Le + demand\u00e9",
+    tagColor: "bg-primary-light text-primary",
   },
   {
-    icon: "&#128269;",
+    icon: Search,
     title: "Veille concurrentielle",
-    desc: "Surveillance concurrents, rapport mensuel automatise",
+    desc: "Surveillance de vos concurrents, analyse des tendances, rapport de synth\u00e8se mensuel automatis\u00e9.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#128200;",
-    title: "Analyse de donnees",
-    desc: "Dashboard KPIs, tendances, alertes predictives",
+    icon: BarChart3,
+    title: "Analyse de donn\u00e9es",
+    desc: "Tableau de bord simplifi\u00e9 pour dirigeants : KPIs, tendances, alertes pr\u00e9dictives. Sans Excel.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#128172;",
+    icon: MessageCircle,
     title: "Support client 24/7",
-    desc: "Chatbot IA sur votre site, escalade intelligente",
-    tag: "ROI immediat",
+    desc: "Chatbot IA int\u00e9gr\u00e9 \u00e0 votre site. R\u00e9pond \u00e0 vos clients jour et nuit, escalade si n\u00e9cessaire.",
+    tag: "ROI imm\u00e9diat",
+    tagColor: "bg-emerald-50 text-emerald-700",
   },
   {
-    icon: "&#127919;",
-    title: "Marketing automatise",
-    desc: "Pipeline leads, sequences email, scoring IA",
+    icon: Target,
+    title: "Marketing automatis\u00e9",
+    desc: "Capture de leads, scoring intelligent, s\u00e9quences email personnalis\u00e9es. Du prospect au client.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#127908;",
-    title: "Comptes rendus reunion",
-    desc: "Transcription, resume, actions extraites automatiquement",
+    icon: Mic,
+    title: "Comptes rendus de r\u00e9union",
+    desc: "Transcription automatique, r\u00e9sum\u00e9 structur\u00e9, extraction des d\u00e9cisions et actions \u00e0 suivre.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#128196;",
+    icon: FileCheck,
     title: "Audit documentaire",
-    desc: "Analyse contrats, detection incoherences, alertes echeances",
+    desc: "Analyse de vos contrats et proc\u00e9dures. D\u00e9tection d\u2019incoh\u00e9rences, alertes sur les \u00e9ch\u00e9ances.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#9881;",
+    icon: Settings,
     title: "Automatisation admin",
-    desc: "Reporting, sync outils, consolidation, rappels",
+    desc: "Reporting automatis\u00e9, synchronisation de vos outils, consolidation de donn\u00e9es, rappels intelligents.",
     tag: null,
+    tagColor: "",
   },
   {
-    icon: "&#128204;",
-    title: "Appels d'offres",
-    desc: "Veille marches publics, scoring, aide a la redaction",
+    icon: Briefcase,
+    title: "Appels d\u2019offres",
+    desc: "Veille des march\u00e9s publics, scoring de pertinence, aide \u00e0 la r\u00e9daction de vos r\u00e9ponses.",
     tag: null,
+    tagColor: "",
   },
 ];
 
 const PLANS = [
   {
     name: "Essentiel",
-    price: "49",
+    price: "49\u00a0\u20ac",
     period: "/mois",
-    annual: "39 EUR/mois en annuel",
-    target: "TPE, 1-5 salaries",
+    annual: "soit 39\u00a0\u20ac/mois en annuel",
+    target: "Id\u00e9al pour les TPE \u00b7 1 \u00e0 5 salari\u00e9s",
     features: [
-      "11 services inclus",
+      "Les 11 services inclus",
       "1 utilisateur",
-      "500 actions IA/mois",
-      "Support email",
+      "500 actions IA / mois",
+      "Support par email",
+      "Export comptable FEC",
     ],
-    cta: "Rejoindre la liste",
+    cta: "Rejoindre la liste d\u2019attente",
     highlight: false,
   },
   {
     name: "Pro",
-    price: "99",
+    price: "99\u00a0\u20ac",
     period: "/mois",
-    annual: "79 EUR/mois en annuel",
-    target: "PME, 5-25 salaries",
+    annual: "soit 79\u00a0\u20ac/mois en annuel",
+    target: "Pour les PME \u00b7 5 \u00e0 25 salari\u00e9s",
     features: [
-      "11 services inclus",
-      "3 utilisateurs (+25 EUR/user)",
-      "2 000 actions IA/mois",
-      "Support chat + telephone",
-      "Widget a vos couleurs",
-      "Acces API",
+      "Les 11 services inclus",
+      "3 utilisateurs (+25\u00a0\u20ac/utilisateur)",
+      "2\u00a0000 actions IA / mois",
+      "Support chat + t\u00e9l\u00e9phone",
+      "Widget \u00e0 vos couleurs",
+      "Acc\u00e8s API",
+      "Export Sage / Cegid / ACD",
     ],
-    cta: "Rejoindre la liste",
+    cta: "Rejoindre la liste d\u2019attente",
     highlight: true,
   },
   {
     name: "Enterprise",
     price: "Sur devis",
     period: "",
-    annual: "A partir de 199 EUR/mois",
-    target: "PME, 25-250 salaries",
+    annual: "\u00c0 partir de 199\u00a0\u20ac/mois",
+    target: "PME \u00b7 25 \u00e0 250 salari\u00e9s",
     features: [
-      "11 services inclus",
-      "10 utilisateurs (+20 EUR/user)",
-      "10 000+ actions IA/mois",
-      "Support dedie",
-      "Full custom branding",
+      "Les 11 services inclus",
+      "10 utilisateurs (+20\u00a0\u20ac/utilisateur)",
+      "Actions IA illimit\u00e9es",
+      "Support d\u00e9di\u00e9",
+      "Branding 100\u00a0% personnalis\u00e9",
       "API + webhooks",
-      "Onboarding accompagne",
+      "Onboarding accompagn\u00e9",
     ],
     cta: "Nous contacter",
     highlight: false,
   },
 ];
 
-const PAIN_POINTS = [
-  { stat: "40%", desc: "du temps des dirigeants PME passe sur l'administratif" },
-  { stat: "1 500 EUR", desc: "par mois pour 10 outils separes non integres" },
-  { stat: "84%", desc: "des projets IA en PME echouent par manque de simplicite" },
-  { stat: "70%", desc: "des PME non pretes pour la facturation electronique 2026" },
-];
-
 export default function Home() {
   return (
-    <main>
-      {/* NAVBAR */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50">
+    <main className="overflow-x-hidden">
+      {/* ========== NAVBAR ========== */}
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-border/50 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-xl font-bold">
-            <span className="text-primary">PILOTE</span>{" "}
+          <div className="text-xl font-bold tracking-tight">
+            <span className="gradient-text">PILOTE</span>{" "}
             <span className="text-foreground">AI</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm text-muted">
-            <a href="#services" className="hover:text-foreground transition">
-              Services
-            </a>
-            <a href="#pricing" className="hover:text-foreground transition">
-              Tarifs
-            </a>
-            <a href="#waitlist" className="hover:text-foreground transition">
-              Liste d&apos;attente
-            </a>
+          <div className="hidden md:flex items-center gap-8 text-sm text-muted font-medium">
+            <a href="#services" className="hover:text-foreground transition">Services</a>
+            <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
+            <a href="#waitlist" className="hover:text-foreground transition">Acc\u00e8s anticip\u00e9</a>
           </div>
           <a
             href="#waitlist"
-            className="bg-primary text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition"
+            className="bg-foreground text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-foreground/90 transition"
           >
-            Acces anticipe
+            Acc\u00e8s anticip\u00e9 <ChevronRight className="inline w-4 h-4 ml-1" />
           </a>
         </div>
       </nav>
 
-      {/* HERO */}
-      <section className="pt-32 pb-20 px-6">
+      {/* ========== HERO ========== */}
+      <section className="hero-gradient pt-36 pb-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block bg-amber-50 text-amber-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            Facturation electronique obligatoire en septembre 2026
+          <div className="animate-fade-up">
+            <div className="inline-flex items-center gap-2 bg-accent-light text-amber-800 text-sm font-semibold px-4 py-2 rounded-full mb-8 shadow-sm">
+              <Zap className="w-4 h-4" />
+              Facturation \u00e9lectronique obligatoire en septembre 2026
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+
+          <h1 className="animate-fade-up stagger-1 text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8">
             Moins d&apos;admin,
             <br />
-            <span className="text-primary">plus de business.</span>
+            <span className="gradient-text">plus de business.</span>
           </h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-            11 services IA pour votre PME. Facturation, contenu, support
-            client, marketing et plus.{" "}
-            <strong className="text-foreground">
-              Un seul abonnement, un seul outil.
-            </strong>
+
+          <p className="animate-fade-up stagger-2 text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <strong className="font-semibold text-foreground">11 services IA</strong> pour votre PME.
+            Facturation, contenu, support client, marketing{" "}
+            <span className="text-muted">et bien plus.</span>
+            <br />
+            <strong className="font-semibold text-foreground">Un seul abonnement. Un seul outil.</strong>
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+
+          <div className="animate-fade-up stagger-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <a
               href="#waitlist"
-              className="bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-primary-dark transition shadow-lg shadow-primary/20"
+              className="group bg-gradient-to-r from-primary to-purple-600 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
             >
               Rejoindre la liste d&apos;attente
+              <ArrowRight className="inline w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#services"
-              className="text-muted px-8 py-4 rounded-xl text-lg font-medium hover:text-foreground transition"
+              className="text-muted px-8 py-5 rounded-2xl text-lg font-medium hover:text-foreground transition border border-transparent hover:border-border"
             >
-              Decouvrir les services &#8595;
+              D\u00e9couvrir les services
             </a>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted">
-            <span>&#10003; 14 jours d&apos;essai gratuit</span>
-            <span>&#10003; Heberge en Europe (RGPD)</span>
-            <span>&#10003; Conforme facturation 2026</span>
+
+          <div className="animate-fade-up stagger-4 flex flex-wrap items-center justify-center gap-8 text-sm text-muted">
+            <span className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-success" /> 14 jours d&apos;essai gratuit
+            </span>
+            <span className="flex items-center gap-2">
+              <Shield className="w-4 h-4 text-success" /> H\u00e9berg\u00e9 en Europe (RGPD)
+            </span>
+            <span className="flex items-center gap-2">
+              <FileText className="w-4 h-4 text-success" /> Conforme Factur-X 2026
+            </span>
           </div>
         </div>
       </section>
 
-      {/* PAIN POINTS */}
-      <section className="py-16 px-6 bg-muted-bg">
+      {/* ========== CHIFFRES CL\u00c9S ========== */}
+      <section className="py-20 px-6 bg-foreground text-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {PAIN_POINTS.map((p, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            {[
+              { stat: "40\u00a0%", desc: "du temps des dirigeants pass\u00e9 sur l\u2019administratif" },
+              { stat: "1\u00a0500\u00a0\u20ac", desc: "par mois pour 10 outils s\u00e9par\u00e9s et non int\u00e9gr\u00e9s" },
+              { stat: "84\u00a0%", desc: "des projets IA en PME \u00e9chouent par manque de simplicit\u00e9" },
+              { stat: "70\u00a0%", desc: "des PME non pr\u00eates pour la facturation \u00e9lectronique" },
+            ].map((p, i) => (
               <div key={i} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                <div className="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   {p.stat}
                 </div>
-                <div className="text-sm text-muted leading-snug">{p.desc}</div>
+                <div className="text-sm text-slate-400 leading-snug">{p.desc}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="py-20 px-6">
+      {/* ========== SERVICES ========== */}
+      <section id="services" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              11 services, un seul outil
+          <div className="text-center mb-20">
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Tout-en-un</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-5">
+              11 services, <span className="gradient-text">un seul outil</span>
             </h2>
-            <p className="text-lg text-muted max-w-2xl mx-auto">
-              Tout ce dont votre PME a besoin pour gagner du temps, de
-              l&apos;argent et de la serenite. L&apos;IA travaille sous le capot
-              — vous voyez juste les resultats.
+            <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
+              Tout ce dont votre PME a besoin pour gagner du temps, de l&apos;argent
+              et de la s\u00e9r\u00e9nit\u00e9. L&apos;IA travaille sous le capot &mdash;
+              vous voyez juste les r\u00e9sultats.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((s, i) => (
-              <div
-                key={i}
-                className="relative bg-white border border-border rounded-2xl p-6 hover:shadow-lg hover:border-primary/30 transition group"
-              >
-                {s.tag && (
-                  <span className="absolute top-4 right-4 bg-amber-50 text-amber-700 text-xs font-medium px-2.5 py-1 rounded-full">
-                    {s.tag}
-                  </span>
-                )}
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SERVICES.map((s, i) => {
+              const Icon = s.icon;
+              return (
                 <div
-                  className="text-3xl mb-3"
-                  dangerouslySetInnerHTML={{ __html: s.icon }}
-                />
-                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
+                  key={i}
+                  className="card-glow relative border border-border/60 p-6 group"
+                >
+                  {s.tag && (
+                    <span className={`absolute top-4 right-4 text-xs font-semibold px-3 py-1 rounded-full ${s.tagColor}`}>
+                      {s.tag}
+                    </span>
+                  )}
+                  <div className="w-11 h-11 bg-primary-light rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-base font-bold mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
+                </div>
+              );
+            })}
           </div>
-          <div className="text-center mt-12">
-            <p className="text-muted text-lg">
-              Cout actuel pour une PME avec 10 outils separes :{" "}
-              <span className="line-through">1 000 - 1 500 EUR/mois</span>
+
+          <div className="text-center mt-16 bg-muted-bg rounded-3xl p-10">
+            <p className="text-muted text-lg mb-2">
+              Co\u00fbt actuel pour une PME avec 10 outils s\u00e9par\u00e9s :
+              <span className="line-through ml-2 text-red-400 font-semibold">1\u00a0000 \u2013 1\u00a0500\u00a0\u20ac/mois</span>
             </p>
-            <p className="text-2xl font-bold text-primary mt-2">
-              PILOTE AI : a partir de 49 EUR/mois tout inclus
+            <p className="text-3xl font-extrabold gradient-text">
+              PILOTE AI : \u00e0 partir de 49\u00a0\u20ac/mois, tout inclus
             </p>
           </div>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="py-20 px-6 bg-muted-bg">
+      {/* ========== COMMENT \u00c7A MARCHE ========== */}
+      <section className="py-24 px-6 bg-muted-bg dot-pattern">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Comment ca marche
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Simple</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+              Op\u00e9rationnel en <span className="gradient-text">5 minutes</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10">
             {[
               {
                 step: "1",
-                title: "Inscrivez-vous en 2 min",
-                desc: "Email + SIRET. Votre espace est configure automatiquement avec les donnees de votre entreprise.",
+                icon: Zap,
+                title: "Inscrivez-vous en 2\u00a0min",
+                desc: "Email + SIRET. Votre espace se configure automatiquement gr\u00e2ce aux donn\u00e9es publiques de votre entreprise.",
               },
               {
                 step: "2",
+                icon: Settings,
                 title: "Connectez vos outils",
-                desc: "Banque, email, agenda. En quelques clics, PILOTE AI a le contexte pour vous aider.",
+                desc: "Banque, email, agenda. En quelques clics, PILOTE\u00a0AI a le contexte pour vous aider concr\u00e8tement.",
               },
               {
                 step: "3",
-                title: "L'IA travaille pour vous",
-                desc: "Chaque lundi matin, un brief de votre semaine. Factures, relances, contenu, support — tout roule.",
+                icon: Clock,
+                title: "L\u2019IA travaille pour vous",
+                desc: "Chaque lundi, un brief de votre semaine. Factures, relances, contenu, support\u00a0\u2014\u00a0tout roule.",
               },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {s.step}
+            ].map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div key={i} className="bg-white rounded-2xl p-8 text-center shadow-sm border border-border/40">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div className="text-xs font-bold text-primary uppercase tracking-widest mb-3">\u00c9tape {s.step}</div>
+                  <h3 className="text-lg font-bold mb-3">{s.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="text-lg font-bold mb-2">{s.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="py-20 px-6">
+      {/* ========== PRICING ========== */}
+      <section id="pricing" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Un prix simple, tous les services inclus
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Tarifs</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-5">
+              Un prix simple, <span className="gradient-text">tous les services inclus</span>
             </h2>
             <p className="text-lg text-muted">
               Pas de modules payants. Pas de tokens. Pas de surprises.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="grid md:grid-cols-3 gap-6 items-start">
             {PLANS.map((plan, i) => (
               <div
                 key={i}
-                className={`relative rounded-2xl p-8 ${
+                className={`relative rounded-3xl p-8 transition-all duration-300 ${
                   plan.highlight
-                    ? "bg-primary text-white shadow-2xl shadow-primary/20 md:scale-105"
-                    : "bg-white border border-border"
+                    ? "bg-gradient-to-br from-primary to-purple-600 text-white md:scale-105 pricing-glow"
+                    : "bg-white border border-border hover:border-primary/30 hover:shadow-lg"
                 }`}
               >
                 {plan.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1 rounded-full">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-lg">
                     Le plus populaire
                   </span>
                 )}
-                <div className="text-sm font-medium opacity-80 mb-1">
+                <div className={`text-sm font-medium mb-1 ${plan.highlight ? "text-white/70" : "text-muted"}`}>
                   {plan.target}
                 </div>
-                <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
+                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-4xl font-extrabold">{plan.price}</span>
                   {plan.period && (
-                    <span className="text-lg opacity-70">{plan.period}</span>
+                    <span className={`text-lg ${plan.highlight ? "text-white/60" : "text-muted"}`}>
+                      {plan.period}
+                    </span>
                   )}
                 </div>
-                <div
-                  className={`text-sm mb-6 ${
-                    plan.highlight ? "opacity-70" : "text-muted"
-                  }`}
-                >
+                <div className={`text-sm mb-8 ${plan.highlight ? "text-white/60" : "text-muted"}`}>
                   {plan.annual}
                 </div>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3.5 mb-8">
                   {plan.features.map((f, j) => (
-                    <li
-                      key={j}
-                      className={`flex items-start gap-2 text-sm ${
-                        plan.highlight ? "" : "text-muted"
-                      }`}
-                    >
-                      <span className={plan.highlight ? "text-accent" : "text-success"}>
-                        &#10003;
-                      </span>
-                      {f}
+                    <li key={j} className="flex items-start gap-3 text-sm">
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.highlight ? "text-accent" : "text-success"}`} />
+                      <span className={plan.highlight ? "" : "text-muted"}>{f}</span>
                     </li>
                   ))}
                 </ul>
                 <a
                   href="#waitlist"
-                  className={`block text-center py-3 px-6 rounded-xl font-bold transition ${
+                  className={`block text-center py-3.5 px-6 rounded-xl font-bold transition-all duration-300 ${
                     plan.highlight
-                      ? "bg-white text-primary hover:bg-gray-100"
-                      : "bg-primary text-white hover:bg-primary-dark"
+                      ? "bg-white text-primary hover:bg-white/90 hover:shadow-lg"
+                      : "bg-foreground text-white hover:bg-foreground/90"
                   }`}
                 >
                   {plan.cta}
@@ -369,95 +399,92 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-muted mt-8">
-            Tous les prix sont en EUR TTC. 14 jours d&apos;essai gratuit.
-            Remise -20% sur l&apos;engagement annuel. Sans engagement mensuel.
+
+          <p className="text-center text-sm text-muted mt-10">
+            Tous les prix sont en euros TTC. 14 jours d&apos;essai gratuit.
+            Remise de 20\u00a0% sur l&apos;engagement annuel. Sans engagement en mensuel.
           </p>
         </div>
       </section>
 
-      {/* TRUST */}
-      <section className="py-16 px-6 bg-muted-bg">
+      {/* ========== CONFIANCE ========== */}
+      <section className="py-20 px-6 bg-muted-bg">
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid md:grid-cols-4 gap-10">
             {[
-              { icon: "&#128274;", text: "RGPD compliant, heberge en Europe" },
-              { icon: "&#127466;&#127482;", text: "Factur-X conforme 2026" },
-              { icon: "&#129302;", text: "IA sous le capot, vous gardez le controle" },
-              { icon: "&#128101;", text: "Dashboard expert-comptable integre" },
-            ].map((t, i) => (
-              <div key={i}>
-                <div
-                  className="text-3xl mb-2"
-                  dangerouslySetInnerHTML={{ __html: t.icon }}
-                />
-                <p className="text-sm text-muted">{t.text}</p>
-              </div>
-            ))}
+              { icon: Shield, title: "RGPD natif", desc: "Donn\u00e9es h\u00e9berg\u00e9es en Europe, chiffrement de bout en bout" },
+              { icon: Globe, title: "Factur-X 2026", desc: "Format conforme \u00e0 la r\u00e9forme de la facturation \u00e9lectronique" },
+              { icon: Cpu, title: "IA sous le capot", desc: "Vous gardez le contr\u00f4le. L\u2019IA assiste, elle ne d\u00e9cide jamais seule" },
+              { icon: Users, title: "Expert-comptable", desc: "Dashboard d\u00e9di\u00e9 pour votre comptable, exports automatis\u00e9s" },
+            ].map((t, i) => {
+              const Icon = t.icon;
+              return (
+                <div key={i} className="text-center">
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm border border-border/60 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-sm mb-1">{t.title}</h4>
+                  <p className="text-xs text-muted leading-relaxed">{t.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* WAITLIST */}
-      <section id="waitlist" className="py-20 px-6">
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Rejoignez la liste d&apos;attente
+      {/* ========== WAITLIST ========== */}
+      <section id="waitlist" className="py-24 px-6 hero-gradient">
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Acc\u00e8s anticip\u00e9</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-5">
+            Rejoignez les premiers <span className="gradient-text">pilotes</span>
           </h2>
-          <p className="text-lg text-muted">
-            Lancement prevu ete 2026. Les premiers inscrits auront un{" "}
-            <strong className="text-foreground">
-              acces prioritaire + 1 mois offert
-            </strong>
-            .
+          <p className="text-lg text-muted leading-relaxed">
+            Lancement pr\u00e9vu \u00e9t\u00e9 2026. Les premiers inscrits b\u00e9n\u00e9ficient d&apos;un{" "}
+            <strong className="text-foreground">acc\u00e8s prioritaire + 1 mois offert</strong>.
           </p>
         </div>
         <WaitlistForm />
       </section>
 
-      {/* EC SECTION */}
-      <section className="py-16 px-6 bg-slate-900 text-white">
+      {/* ========== EXPERT-COMPTABLE ========== */}
+      <section className="py-20 px-6 bg-foreground text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Vous etes expert-comptable ?
+          <Users className="w-10 h-10 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-5">
+            Vous \u00eates expert-comptable\u00a0?
           </h2>
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Recommandez PILOTE AI a vos clients PME. Dashboard dedie, exports
-            FEC/Sage/Cegid, et{" "}
-            <strong className="text-white">15% de commission recurrente</strong>{" "}
-            sur chaque client refere.
+          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Recommandez PILOTE\u00a0AI \u00e0 vos clients PME. Dashboard d\u00e9di\u00e9,
+            exports FEC, Sage et Cegid, et{" "}
+            <strong className="text-white">15\u00a0% de commission r\u00e9currente</strong>{" "}
+            sur chaque client r\u00e9f\u00e9r\u00e9.
           </p>
           <a
             href="#waitlist"
-            className="inline-block bg-white text-slate-900 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-100 transition"
+            className="inline-flex items-center gap-2 bg-white text-foreground px-10 py-4 rounded-2xl text-lg font-bold hover:bg-slate-100 transition-all duration-300 hover:shadow-lg"
           >
-            Devenir partenaire
+            Devenir partenaire <ArrowRight className="w-5 h-5" />
           </a>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-12 px-6 border-t border-border">
+      {/* ========== FOOTER ========== */}
+      <footer className="py-12 px-6 border-t border-border/50">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <span className="text-lg font-bold">
-              <span className="text-primary">PILOTE</span> AI
+          <div className="flex items-center gap-3">
+            <span className="text-lg font-bold tracking-tight">
+              <span className="gradient-text">PILOTE</span> AI
             </span>
-            <span className="text-sm text-muted ml-4">
+            <span className="text-sm text-muted">
               Moins d&apos;admin, plus de business.
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted">
-            <span>&#169; 2026 PILOTE AI</span>
-            <a href="#" className="hover:text-foreground transition">
-              Mentions legales
-            </a>
-            <a href="#" className="hover:text-foreground transition">
-              Confidentialite
-            </a>
-            <a href="#" className="hover:text-foreground transition">
-              Contact
-            </a>
+            <span>&copy; 2026 PILOTE\u00a0AI</span>
+            <a href="#" className="hover:text-foreground transition">Mentions l\u00e9gales</a>
+            <a href="#" className="hover:text-foreground transition">Confidentialit\u00e9</a>
+            <a href="#" className="hover:text-foreground transition">Contact</a>
           </div>
         </div>
       </footer>
