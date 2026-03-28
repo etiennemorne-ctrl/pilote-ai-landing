@@ -9,77 +9,77 @@ const SERVICES = [
   {
     icon: FileText,
     title: "Facturation intelligente",
-    desc: "Factures conformes Factur-X, relances automatiques, rapprochement bancaire par IA. Pr\u00eat pour septembre 2026.",
+    desc: "Factures conformes Factur-X, relances automatiques, rapprochement bancaire par IA. Pr\êt pour septembre 2026.",
     tag: "Obligatoire sept. 2026",
     tagColor: "bg-red-50 text-red-700",
   },
   {
     icon: Bot,
     title: "Assistant virtuel",
-    desc: "Tri de vos emails par priorit\u00e9, gestion d\u2019agenda, g\u00e9n\u00e9ration de courriers et suivi administratif.",
+    desc: "Tri de vos emails par priorit\é, gestion d\’agenda, g\én\ération de courriers et suivi administratif.",
     tag: null,
     tagColor: "",
   },
   {
     icon: PenTool,
-    title: "Cr\u00e9ation de contenu",
-    desc: "Posts LinkedIn dans votre ton, articles SEO optimis\u00e9s, newsletters \u2014 g\u00e9n\u00e9r\u00e9s en un clic.",
-    tag: "Le + demand\u00e9",
+    title: "Cr\éation de contenu",
+    desc: "Posts LinkedIn dans votre ton, articles SEO optimis\és, newsletters \— g\én\ér\és en un clic.",
+    tag: "Le + demand\é",
     tagColor: "bg-primary-light text-primary",
   },
   {
     icon: Search,
     title: "Veille concurrentielle",
-    desc: "Surveillance de vos concurrents, analyse des tendances, rapport de synth\u00e8se mensuel automatis\u00e9.",
+    desc: "Surveillance de vos concurrents, analyse des tendances, rapport de synth\èse mensuel automatis\é.",
     tag: null,
     tagColor: "",
   },
   {
     icon: BarChart3,
-    title: "Analyse de donn\u00e9es",
-    desc: "Tableau de bord simplifi\u00e9 pour dirigeants : KPIs, tendances, alertes pr\u00e9dictives. Sans Excel.",
+    title: "Analyse de donn\ées",
+    desc: "Tableau de bord simplifi\é pour dirigeants : KPIs, tendances, alertes pr\édictives. Sans Excel.",
     tag: null,
     tagColor: "",
   },
   {
     icon: MessageCircle,
     title: "Support client 24/7",
-    desc: "Chatbot IA int\u00e9gr\u00e9 \u00e0 votre site. R\u00e9pond \u00e0 vos clients jour et nuit, escalade si n\u00e9cessaire.",
-    tag: "ROI imm\u00e9diat",
+    desc: "Chatbot IA int\égr\é \à votre site. R\épond \à vos clients jour et nuit, escalade si n\écessaire.",
+    tag: "ROI imm\édiat",
     tagColor: "bg-emerald-50 text-emerald-700",
   },
   {
     icon: Target,
-    title: "Marketing automatis\u00e9",
-    desc: "Capture de leads, scoring intelligent, s\u00e9quences email personnalis\u00e9es. Du prospect au client.",
+    title: "Marketing automatis\é",
+    desc: "Capture de leads, scoring intelligent, s\équences email personnalis\ées. Du prospect au client.",
     tag: null,
     tagColor: "",
   },
   {
     icon: Mic,
-    title: "Comptes rendus de r\u00e9union",
-    desc: "Transcription automatique, r\u00e9sum\u00e9 structur\u00e9, extraction des d\u00e9cisions et actions \u00e0 suivre.",
+    title: "Comptes rendus de r\éunion",
+    desc: "Transcription automatique, r\ésum\é structur\é, extraction des d\écisions et actions \à suivre.",
     tag: null,
     tagColor: "",
   },
   {
     icon: FileCheck,
     title: "Audit documentaire",
-    desc: "Analyse de vos contrats et proc\u00e9dures. D\u00e9tection d\u2019incoh\u00e9rences, alertes sur les \u00e9ch\u00e9ances.",
+    desc: "Analyse de vos contrats et proc\édures. D\étection d\’incoh\érences, alertes sur les \éch\éances.",
     tag: null,
     tagColor: "",
   },
   {
     icon: Settings,
     title: "Automatisation admin",
-    desc: "Reporting automatis\u00e9, synchronisation de vos outils, consolidation de donn\u00e9es, rappels intelligents.",
+    desc: "Reporting automatis\é, synchronisation de vos outils, consolidation de donn\ées, rappels intelligents.",
     tag: null,
     tagColor: "",
   },
   {
     icon: Briefcase,
-    title: "Appels d\u2019offres",
-    desc: "Veille des march\u00e9s publics, scoring de pertinence, aide \u00e0 la r\u00e9daction de vos r\u00e9ponses.",
+    title: "Appels d\’offres",
+    desc: "Veille des march\és publics, scoring de pertinence, aide \à la r\édaction de vos r\éponses.",
     tag: null,
     tagColor: "",
   },
@@ -88,10 +88,10 @@ const SERVICES = [
 const PLANS = [
   {
     name: "Essentiel",
-    price: "49\u00a0\u20ac",
+    price: "49\ \€",
     period: "/mois",
-    annual: "soit 39\u00a0\u20ac/mois en annuel",
-    target: "Id\u00e9al pour les TPE \u00b7 1 \u00e0 5 salari\u00e9s",
+    annual: "soit 39\ \€/mois en annuel",
+    target: "Id\éal pour les TPE \· 1 \à 5 salari\és",
     features: [
       "Les 11 services inclus",
       "1 utilisateur",
@@ -99,41 +99,41 @@ const PLANS = [
       "Support par email",
       "Export comptable FEC",
     ],
-    cta: "Rejoindre la liste d\u2019attente",
+    cta: "Rejoindre la liste d\’attente",
     highlight: false,
   },
   {
     name: "Pro",
-    price: "99\u00a0\u20ac",
+    price: "99\ \€",
     period: "/mois",
-    annual: "soit 79\u00a0\u20ac/mois en annuel",
-    target: "Pour les PME \u00b7 5 \u00e0 25 salari\u00e9s",
+    annual: "soit 79\ \€/mois en annuel",
+    target: "Pour les PME \· 5 \à 25 salari\és",
     features: [
       "Les 11 services inclus",
-      "3 utilisateurs (+25\u00a0\u20ac/utilisateur)",
-      "2\u00a0000 actions IA / mois",
-      "Support chat + t\u00e9l\u00e9phone",
-      "Widget \u00e0 vos couleurs",
-      "Acc\u00e8s API",
+      "3 utilisateurs (+25\ \€/utilisateur)",
+      "2\ 000 actions IA / mois",
+      "Support chat + t\él\éphone",
+      "Widget \à vos couleurs",
+      "Acc\ès API",
       "Export Sage / Cegid / ACD",
     ],
-    cta: "Rejoindre la liste d\u2019attente",
+    cta: "Rejoindre la liste d\’attente",
     highlight: true,
   },
   {
     name: "Enterprise",
     price: "Sur devis",
     period: "",
-    annual: "\u00c0 partir de 199\u00a0\u20ac/mois",
-    target: "PME \u00b7 25 \u00e0 250 salari\u00e9s",
+    annual: "\À partir de 199\ \€/mois",
+    target: "PME \· 25 \à 250 salari\és",
     features: [
       "Les 11 services inclus",
-      "10 utilisateurs (+20\u00a0\u20ac/utilisateur)",
-      "Actions IA illimit\u00e9es",
-      "Support d\u00e9di\u00e9",
-      "Branding 100\u00a0% personnalis\u00e9",
+      "10 utilisateurs (+20\ \€/utilisateur)",
+      "Actions IA illimit\ées",
+      "Support d\édi\é",
+      "Branding 100\ % personnalis\é",
       "API + webhooks",
-      "Onboarding accompagn\u00e9",
+      "Onboarding accompagn\é",
     ],
     cta: "Nous contacter",
     highlight: false,
@@ -153,13 +153,13 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8 text-sm text-muted font-medium">
             <a href="#services" className="hover:text-foreground transition">Services</a>
             <a href="#pricing" className="hover:text-foreground transition">Tarifs</a>
-            <a href="#waitlist" className="hover:text-foreground transition">Acc\u00e8s anticip\u00e9</a>
+            <a href="#waitlist" className="hover:text-foreground transition">Acc\ès anticip\é</a>
           </div>
           <a
             href="#waitlist"
             className="bg-foreground text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-foreground/90 transition"
           >
-            Acc\u00e8s anticip\u00e9 <ChevronRight className="inline w-4 h-4 ml-1" />
+            Acc\ès anticip\é <ChevronRight className="inline w-4 h-4 ml-1" />
           </a>
         </div>
       </nav>
@@ -170,7 +170,7 @@ export default function Home() {
           <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 bg-accent-light text-amber-800 text-sm font-semibold px-4 py-2 rounded-full mb-8 shadow-sm">
               <Zap className="w-4 h-4" />
-              Facturation \u00e9lectronique obligatoire en septembre 2026
+              Facturation \électronique obligatoire en septembre 2026
             </div>
           </div>
 
@@ -200,7 +200,7 @@ export default function Home() {
               href="#services"
               className="text-muted px-8 py-5 rounded-2xl text-lg font-medium hover:text-foreground transition border border-transparent hover:border-border"
             >
-              D\u00e9couvrir les services
+              D\écouvrir les services
             </a>
           </div>
 
@@ -209,7 +209,7 @@ export default function Home() {
               <Check className="w-4 h-4 text-success" /> 14 jours d&apos;essai gratuit
             </span>
             <span className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-success" /> H\u00e9berg\u00e9 en Europe (RGPD)
+              <Shield className="w-4 h-4 text-success" /> H\éberg\é en Europe (RGPD)
             </span>
             <span className="flex items-center gap-2">
               <FileText className="w-4 h-4 text-success" /> Conforme Factur-X 2026
@@ -218,15 +218,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== CHIFFRES CL\u00c9S ========== */}
+      {/* ========== CHIFFRES CL\ÉS ========== */}
       <section className="py-20 px-6 bg-foreground text-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {[
-              { stat: "40\u00a0%", desc: "du temps des dirigeants pass\u00e9 sur l\u2019administratif" },
-              { stat: "1\u00a0500\u00a0\u20ac", desc: "par mois pour 10 outils s\u00e9par\u00e9s et non int\u00e9gr\u00e9s" },
-              { stat: "84\u00a0%", desc: "des projets IA en PME \u00e9chouent par manque de simplicit\u00e9" },
-              { stat: "70\u00a0%", desc: "des PME non pr\u00eates pour la facturation \u00e9lectronique" },
+              { stat: "40\ %", desc: "du temps des dirigeants pass\é sur l\’administratif" },
+              { stat: "1\ 500\ \€", desc: "par mois pour 10 outils s\épar\és et non int\égr\és" },
+              { stat: "84\ %", desc: "des projets IA en PME \échouent par manque de simplicit\é" },
+              { stat: "70\ %", desc: "des PME non pr\êtes pour la facturation \électronique" },
             ].map((p, i) => (
               <div key={i} className="text-center">
                 <div className="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -249,8 +249,8 @@ export default function Home() {
             </h2>
             <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Tout ce dont votre PME a besoin pour gagner du temps, de l&apos;argent
-              et de la s\u00e9r\u00e9nit\u00e9. L&apos;IA travaille sous le capot &mdash;
-              vous voyez juste les r\u00e9sultats.
+              et de la s\ér\énit\é. L&apos;IA travaille sous le capot &mdash;
+              vous voyez juste les r\ésultats.
             </p>
           </div>
 
@@ -279,23 +279,23 @@ export default function Home() {
 
           <div className="text-center mt-16 bg-muted-bg rounded-3xl p-10">
             <p className="text-muted text-lg mb-2">
-              Co\u00fbt actuel pour une PME avec 10 outils s\u00e9par\u00e9s :
-              <span className="line-through ml-2 text-red-400 font-semibold">1\u00a0000 \u2013 1\u00a0500\u00a0\u20ac/mois</span>
+              Co\ût actuel pour une PME avec 10 outils s\épar\és :
+              <span className="line-through ml-2 text-red-400 font-semibold">1\ 000 \– 1\ 500\ \€/mois</span>
             </p>
             <p className="text-3xl font-extrabold gradient-text">
-              PILOTE AI : \u00e0 partir de 49\u00a0\u20ac/mois, tout inclus
+              PILOTE AI : \à partir de 49\ \€/mois, tout inclus
             </p>
           </div>
         </div>
       </section>
 
-      {/* ========== COMMENT \u00c7A MARCHE ========== */}
+      {/* ========== COMMENT \ÇA MARCHE ========== */}
       <section className="py-24 px-6 bg-muted-bg dot-pattern">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Simple</p>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              Op\u00e9rationnel en <span className="gradient-text">5 minutes</span>
+              Op\érationnel en <span className="gradient-text">5 minutes</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
@@ -303,20 +303,20 @@ export default function Home() {
               {
                 step: "1",
                 icon: Zap,
-                title: "Inscrivez-vous en 2\u00a0min",
-                desc: "Email + SIRET. Votre espace se configure automatiquement gr\u00e2ce aux donn\u00e9es publiques de votre entreprise.",
+                title: "Inscrivez-vous en 2\ min",
+                desc: "Email + SIRET. Votre espace se configure automatiquement gr\âce aux donn\ées publiques de votre entreprise.",
               },
               {
                 step: "2",
                 icon: Settings,
                 title: "Connectez vos outils",
-                desc: "Banque, email, agenda. En quelques clics, PILOTE\u00a0AI a le contexte pour vous aider concr\u00e8tement.",
+                desc: "Banque, email, agenda. En quelques clics, PILOTE\ AI a le contexte pour vous aider concr\ètement.",
               },
               {
                 step: "3",
                 icon: Clock,
-                title: "L\u2019IA travaille pour vous",
-                desc: "Chaque lundi, un brief de votre semaine. Factures, relances, contenu, support\u00a0\u2014\u00a0tout roule.",
+                title: "L\’IA travaille pour vous",
+                desc: "Chaque lundi, un brief de votre semaine. Factures, relances, contenu, support\ \—\ tout roule.",
               },
             ].map((s, i) => {
               const Icon = s.icon;
@@ -325,7 +325,7 @@ export default function Home() {
                   <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <div className="text-xs font-bold text-primary uppercase tracking-widest mb-3">\u00c9tape {s.step}</div>
+                  <div className="text-xs font-bold text-primary uppercase tracking-widest mb-3">\Étape {s.step}</div>
                   <h3 className="text-lg font-bold mb-3">{s.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
                 </div>
@@ -402,7 +402,7 @@ export default function Home() {
 
           <p className="text-center text-sm text-muted mt-10">
             Tous les prix sont en euros TTC. 14 jours d&apos;essai gratuit.
-            Remise de 20\u00a0% sur l&apos;engagement annuel. Sans engagement en mensuel.
+            Remise de 20\ % sur l&apos;engagement annuel. Sans engagement en mensuel.
           </p>
         </div>
       </section>
@@ -412,10 +412,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-4 gap-10">
             {[
-              { icon: Shield, title: "RGPD natif", desc: "Donn\u00e9es h\u00e9berg\u00e9es en Europe, chiffrement de bout en bout" },
-              { icon: Globe, title: "Factur-X 2026", desc: "Format conforme \u00e0 la r\u00e9forme de la facturation \u00e9lectronique" },
-              { icon: Cpu, title: "IA sous le capot", desc: "Vous gardez le contr\u00f4le. L\u2019IA assiste, elle ne d\u00e9cide jamais seule" },
-              { icon: Users, title: "Expert-comptable", desc: "Dashboard d\u00e9di\u00e9 pour votre comptable, exports automatis\u00e9s" },
+              { icon: Shield, title: "RGPD natif", desc: "Donn\ées h\éberg\ées en Europe, chiffrement de bout en bout" },
+              { icon: Globe, title: "Factur-X 2026", desc: "Format conforme \à la r\éforme de la facturation \électronique" },
+              { icon: Cpu, title: "IA sous le capot", desc: "Vous gardez le contr\ôle. L\’IA assiste, elle ne d\écide jamais seule" },
+              { icon: Users, title: "Expert-comptable", desc: "Dashboard d\édi\é pour votre comptable, exports automatis\és" },
             ].map((t, i) => {
               const Icon = t.icon;
               return (
@@ -435,13 +435,13 @@ export default function Home() {
       {/* ========== WAITLIST ========== */}
       <section id="waitlist" className="py-24 px-6 hero-gradient">
         <div className="max-w-2xl mx-auto text-center mb-14">
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Acc\u00e8s anticip\u00e9</p>
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Acc\ès anticip\é</p>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-5">
             Rejoignez les premiers <span className="gradient-text">pilotes</span>
           </h2>
           <p className="text-lg text-muted leading-relaxed">
-            Lancement pr\u00e9vu \u00e9t\u00e9 2026. Les premiers inscrits b\u00e9n\u00e9ficient d&apos;un{" "}
-            <strong className="text-foreground">acc\u00e8s prioritaire + 1 mois offert</strong>.
+            Lancement pr\évu \ét\é 2026. Les premiers inscrits b\én\éficient d&apos;un{" "}
+            <strong className="text-foreground">acc\ès prioritaire + 1 mois offert</strong>.
           </p>
         </div>
         <WaitlistForm />
@@ -452,13 +452,13 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <Users className="w-10 h-10 text-primary mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-extrabold mb-5">
-            Vous \u00eates expert-comptable\u00a0?
+            Vous \êtes expert-comptable\ ?
           </h2>
           <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Recommandez PILOTE\u00a0AI \u00e0 vos clients PME. Dashboard d\u00e9di\u00e9,
+            Recommandez PILOTE\ AI \à vos clients PME. Dashboard d\édi\é,
             exports FEC, Sage et Cegid, et{" "}
-            <strong className="text-white">15\u00a0% de commission r\u00e9currente</strong>{" "}
-            sur chaque client r\u00e9f\u00e9r\u00e9.
+            <strong className="text-white">15\ % de commission r\écurrente</strong>{" "}
+            sur chaque client r\éf\ér\é.
           </p>
           <a
             href="#waitlist"
@@ -481,9 +481,9 @@ export default function Home() {
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted">
-            <span>&copy; 2026 PILOTE\u00a0AI</span>
-            <a href="#" className="hover:text-foreground transition">Mentions l\u00e9gales</a>
-            <a href="#" className="hover:text-foreground transition">Confidentialit\u00e9</a>
+            <span>&copy; 2026 PILOTE\ AI</span>
+            <a href="#" className="hover:text-foreground transition">Mentions l\égales</a>
+            <a href="#" className="hover:text-foreground transition">Confidentialit\é</a>
             <a href="#" className="hover:text-foreground transition">Contact</a>
           </div>
         </div>

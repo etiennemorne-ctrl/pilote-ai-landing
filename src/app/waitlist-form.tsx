@@ -23,15 +23,15 @@ export function WaitlistForm() {
       <div className="bg-white border border-emerald-200 rounded-3xl p-10 text-center max-w-lg mx-auto shadow-lg shadow-emerald-500/5 animate-fade-up">
         <CheckCircle2 className="w-14 h-14 text-emerald-500 mx-auto mb-5" />
         <h3 className="text-2xl font-extrabold text-emerald-800 mb-3">
-          Bienvenue parmi les pilotes\u00a0!
+          Bienvenue parmi les pilotes\ !
         </h3>
         <p className="text-emerald-600 leading-relaxed">
           Vous faites partie des premiers inscrits.
           <br />
-          On vous contacte tr\u00e8s bient\u00f4t pour votre acc\u00e8s prioritaire.
+          On vous contacte tr\ès bient\ôt pour votre acc\ès prioritaire.
         </p>
         <div className="mt-6 pt-6 border-t border-emerald-100 text-sm text-emerald-500">
-          Partagez PILOTE\u00a0AI \u00e0 un dirigeant de PME qui en a besoin
+          Partagez PILOTE\ AI \à un dirigeant de PME qui en a besoin
         </div>
       </div>
     );
@@ -45,7 +45,7 @@ export function WaitlistForm() {
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-1.5">
-            Pr\u00e9nom <span className="text-red-400">*</span>
+            Pr\énom <span className="text-red-400">*</span>
           </label>
           <input
             type="text"
@@ -95,16 +95,16 @@ export function WaitlistForm() {
             className="w-full px-4 py-3 rounded-xl border border-border bg-muted-bg/50 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition text-sm text-muted"
           >
             <option value="">Choisir...</option>
-            <option value="1">Ind\u00e9pendant</option>
-            <option value="2-5">2 \u00e0 5 salari\u00e9s</option>
-            <option value="6-20">6 \u00e0 20 salari\u00e9s</option>
-            <option value="21-50">21 \u00e0 50 salari\u00e9s</option>
+            <option value="1">Ind\épendant</option>
+            <option value="2-5">2 \à 5 salari\és</option>
+            <option value="6-20">6 \à 20 salari\és</option>
+            <option value="21-50">21 \à 50 salari\és</option>
             <option value="50+">Plus de 50</option>
           </select>
         </div>
         <div>
           <label htmlFor="pain" className="block text-sm font-semibold text-foreground mb-1.5">
-            Plus gros d\u00e9fi
+            Plus gros d\éfi
           </label>
           <select
             id="pain"
@@ -113,9 +113,9 @@ export function WaitlistForm() {
           >
             <option value="">Choisir...</option>
             <option value="admin">Trop d&apos;administratif</option>
-            <option value="tresorerie">Visibilit\u00e9 tr\u00e9sorerie</option>
+            <option value="tresorerie">Visibilit\é tr\ésorerie</option>
             <option value="factures">Factures et relances</option>
-            <option value="contenu">Cr\u00e9er du contenu</option>
+            <option value="contenu">Cr\éer du contenu</option>
             <option value="clients">Support client</option>
             <option value="marketing">Trouver des clients</option>
             <option value="recrutement">Recrutement</option>
@@ -147,7 +147,7 @@ export function WaitlistForm() {
       </button>
 
       <p className="text-center text-xs text-muted mt-4">
-        Gratuit &middot; Pas de spam &middot; Acc\u00e8s prioritaire au lancement
+        Gratuit &middot; Pas de spam &middot; Acc\ès prioritaire au lancement
       </p>
     </form>
   );
